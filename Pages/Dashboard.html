@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super User Dashboard</title>
+  <link rel = "stylesheet" href="../Styles/Dashboard_Style.css">
+  <script src="../Scripts/Dashboard.js" defer></script>
+</head>
+
+<body>
+  <div id="dashboard">
+    <aside>
+      <div class="header">TARA</div>
+      <nav>
+        <div class="nav-item active" onclick="setActive(event)">
+          <span>
+            <i class="material-symbols-outlined">dashboard</i>
+            Dashboard
+          </span>
+        </div>
+        <div class="nav-item" onclick="navigateTokeyusers('Keyusers List.html', event)">
+          <span>
+            <i class="material-symbols-outlined">group</i>
+            Key Users
+          </span>
+
+        </div>
+        <div class="nav-item" onclick="navigateToUsers('Users.html', event)">
+          <span>
+            <i class="material-symbols-outlined">people</i>
+            Users
+          </span>
+
+        </div>
+        <div class="nav-item" onclick="navigateToCraftsman('Craftsman.html', event)">
+          <span>
+            <i class="material-symbols-outlined">handyman</i>
+            Craftsman
+          </span>
+
+        </div>
+        <div class="nav-item" onclick="navigateToWorkorders('Workorders.html', event)">
+          <span>
+            <i class="material-symbols-outlined">receipt_long</i>
+            Orders
+          </span>
+
+        </div>
+        <div class="nav-item" onclick="setActive(event)">
+          <span>
+            <i class="material-symbols-outlined">work</i>
+            Job Orders
+          </span>
+
+        </div>
+        <div class="nav-item" onclick="setActive(event)">
+          <span>
+            <i class="material-symbols-outlined">diamond</i>
+            Designs
+          </span>
+
+        </div>
+      </nav>
+    </aside>
+    <main>
+      <div class="header">Welcome User</div>
+      <div class="dashboard-cards">
+        <div class="nav-items" onclick="navigateTokeyusers('Keyusers List.html', event)">
+          <i class="material-symbols-outlined">group</i>
+          <div class="content">
+            <div>Key Users</div>
+
+          </div>
+        </div>
+        <div class="nav-items" onclick="navigateToUsers('Users.html', event)">
+          <i class="material-symbols-outlined">people</i>
+          <div class="content">
+            <div>Users</div>
+
+          </div>
+        </div>
+        <div class="nav-items" onclick="navigateToCraftsman('Craftsman.html', event)">
+          <i class="material-symbols-outlined">handyman</i>
+          <div class="content">
+            <div>Craftsman</div>
+
+          </div>
+        </div>
+        <div class="nav-items" onclick="navigateToWorkorders('Workorders.html', event)">
+          <i class="material-symbols-outlined">receipt_long</i>
+          <div class="content">
+            <div>Work Orders</div>
+
+          </div>
+        </div>
+        <div class="nav-items">
+          <i class="material-symbols-outlined">work</i>
+          <div class="content">
+            <div>Job Orders</div>
+
+          </div>
+        </div>
+        <div class="nav-items">
+          <i class="material-symbols-outlined">diamond</i>
+          <div class="content">
+            <div>Designs</div>
+          </div>
+        </div>
+      </div>
+      <div class="calendar">
+        <div class="calendar-header">
+          <i class="material-symbols-outlined">chevron_left</i>
+          <div>December</div>
+          <i class="material-symbols-outlined">chevron_right</i>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>21</td>
+              <td>22</td>
+              <td>23</td>
+              <td>24</td>
+              <td>25</td>
+              <td>26</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>28</td>
+              <td>29</td>
+              <td class="active">30</td>
+              <td>31</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="quick-links">
+        <div>Quick Links</div>
+        <ul>
+          <li>
+            <i class="material-symbols-outlined">person_add</i>
+            Add User
+          </li>
+          <li>
+            <i class="material-symbols-outlined">diamond</i>
+            Designs
+          </li>
+          <li>
+            <i class="material-symbols-outlined">handyman</i>
+            Craftsman
+          </li>
+          <li>
+            <i class="material-symbols-outlined">folder</i>
+            Catalogue
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

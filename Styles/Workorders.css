@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+aside {
+    width: 15%;
+    background: #f8f8f8;
+    padding: 16px;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+aside .header {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+aside nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.nav-item .material-symbols-outlined {
+    font-size: 18px;
+    color: #444;
+}
+
+.nav-item:hover {
+    background: #e0e0e0;
+}
+
+.nav-item.active {
+    background: #444;
+    color: white;
+}
+
+.nav-item.active .material-symbols-outlined {
+    color: white;
+}
+
+.content {
+    margin-left: 17%;
+    /* Increased margin for clearer separation */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.content-header h2 {
+    margin-left: 14px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.content-header button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 17px;
+    margin-right: 10px;
+    margin-top: 15px;
+
+}
+
+.content-header button:hover {
+    background-color: #0056b3;
+}
+
+.export-menu {
+    display: none;
+    position: absolute;
+    background-color: black;
+    width: 150px;
+    z-index: 10;
+    border-radius: 10px;
+}
+.search-bar-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 200px; /* Matches the search bar width */
+}
+.search-bar {
+    height: 30px;
+    width: 150px;
+    padding-left:25px; 
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.search-icon {
+    position: absolute;
+    top: 49%;
+    left: 10px; /* Position inside the input field */
+    transform: translateY(-50%);
+    font-size: 16px; /* Adjust icon size */
+    color: #888; /* Icon color */
+    pointer-events: none;
+    padding-left: 2px; /* Prevent blocking input interactions */
+}
+
+.export-menu button {
+    width: 100%;
+    padding: 10px; /* Reduced padding for less gap */
+    border: none;
+    background-color: black; /* Black color for export buttons */
+    color: white; /* White text color */
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    margin:0; /* Removed margin to reduce spacing */
+}
+
+
+.export-menu button:hover {
+    background-color: #333333;
+}
+.filter-form {
+    display: none; /* Hidden by default */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-form h3 {
+    margin-bottom: 20px;
+}
+
+.filter-form button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-section {
+    display: none;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-section h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.creation-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.field textarea {
+    resize: none;
+    height: 80px;
+}
+
+button[type="submit"] {
+    align-self: start;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="button"] {
+    align-self: start;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.image-field input[type="file"] {
+    width: 40%;
+    height: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.image-field {
+    grid-column: span 2; /* Span the image field across two columns for better visibility */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.filter-form button:hover {
+    background-color: #0056b3;
+}
+
+.table-container {
+    max-height: 550px;
+    border: 1px solid #ddd;
+    background-color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    overflow: auto; /* Already present for both X and Y scrolling */
+    overflow-x: auto;
+
+}
+.table-container::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+.table-container::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Light track */
+}
+
+
+.fl-table {
+    font-size: 14px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+    white-space: nowrap;
+    background-color: white;
+    min-width: 1200px;
+}
+
+.fl-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+}
+
+.fl-table td,
+.fl-table th {
+    text-align: center;
+    padding: 15px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #a4a3a3;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #000000;
+    background: #ffffff;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+
+.fl-table td .image-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+
+
+    aside {
+        width: 100%;
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}

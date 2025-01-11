@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 800px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-box {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+}
+
+.login-form {
+    flex: 1;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+select {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #777;
+}
+
+.checkbox-group {
+    position: absolute;
+    align-items: center;
+    padding: 0;
+    top: 64%;
+    margin-bottom: 20px;
+}
+
+.Remember {
+    position: absolute;
+    right: 66%;
+    top: 64.2%;
+    margin-bottom: 10px;
+}
+
+.forgot-password {
+    position: absolute;
+    right: 53%;
+    top: 64.2%;
+    font-size: 15px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group {
+    display: block;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group a {
+    margin-top: 3px;
+    margin-left: 200px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 155px;
+}
+
+.login-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.cancel-btn {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.cancel-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+.logo {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.logo-box {
+    width: 250px;
+    height: 250px;
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-box {
+        flex-direction: column;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-box {
+        display: none;
+    }
+
+    button {
+        width: 100%;
+    }
+}

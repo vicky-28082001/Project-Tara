@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+aside {
+    width: 15%;
+    background: #f8f8f8;
+    padding: 16px;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+aside .header {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+aside nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.nav-item .material-symbols-outlined {
+    font-size: 18px;
+    color: #444;
+}
+
+.nav-item:hover {
+    background: #e0e0e0;
+}
+
+.nav-item.active {
+    background: #444;
+    color: white;
+}
+
+.nav-item.active .material-symbols-outlined {
+    color: white;
+}
+
+.creation-form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.user-access-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.user-access-grid label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    /* Ensures consistent width for input and select */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.search-bar-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 200px; /* Matches the search bar width */
+}
+.search-bar {
+    height: 15px;
+    width: 150px;
+    padding-left:25px; 
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.search-icon {
+    position: absolute;
+    top: 49%;
+    left: 10px; /* Position inside the input field */
+    transform: translateY(-50%);
+    font-size: 16px; /* Adjust icon size */
+    color: #888; /* Icon color */
+    pointer-events: none;
+    padding-left: 2px; /* Prevent blocking input interactions */
+}
+.form-section button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    display: block;
+    width: auto;
+}
+
+.creation-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.user-access-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Two columns to occupy more space */
+    gap: 15px;
+    /* Adjust spacing between items */
+    margin-top: 20px;
+    width: 100%;
+    /* Make the grid take full width */
+}
+
+.user-access-grid label {
+    display: flex;
+    align-items: center;
+    /* Align text and checkbox vertically */
+    gap: 10px;
+    /* Space between checkbox and text */
+    font-size: 16px;
+    /* Ensure text is readable */
+    cursor: pointer;
+}
+
+.user-access-grid input[type="checkbox"] {
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+    width: auto;
+    /* Ensure default checkbox width */
+    height: auto;
+    /* Ensure default checkbox height */
+    cursor: pointer;/
+}
+
+.creation-section-grid {
+    display: grid;
+    grid-template-columns: 2fr;
+    /* Make the entire section stacked vertically */
+    gap: 20px;
+    padding: 20px;
+}
+.export-menu {
+    display: none;
+    position: absolute;
+    background-color: black;
+    width: 150px;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.export-menu button {
+    width: 100%;
+    padding: 10px; /* Reduced padding for less gap */
+    border: none;
+    background-color: black; /* Black color for export buttons */
+    color: white; /* White text color */
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    margin:0; /* Removed margin to reduce spacing */
+}
+
+
+.export-menu button:hover {
+    background-color: #333333;
+}
+
+.type-options {
+    display: flex;
+    align-items: center; /* Ensures the checkbox and label are vertically aligned */
+    gap: 20px; /* Adds spacing between the two checkboxes */
+    margin-bottom: 20px; /* Controls space below the type-options section */
+}
+
+.type-options label {
+    display: flex;
+    align-items: center; /* Keeps the checkbox and text inline */
+    gap: 5px; /* Adds minimal spacing between the checkbox and text */
+    font-size: 14px;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.form-section {
+    display: none;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative; /* Ensures it stays within content flow */
+    z-index: 10;
+}
+
+.form-section input,
+.form-section select,
+.form-section button {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: calc(100% - 16px);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-section label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.content {
+    margin-left: 17%;
+    padding: 15px;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+}
+
+.content-header h2 {
+    margin-left: 12px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.content-header button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 17px;
+    margin-right: 10px;
+
+}
+
+.content-header button:hover {
+    background-color: #0056b3;
+}
+
+.table-wrapper {
+    margin: 10px 0;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+.table_container {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px); /* Dynamic height to fit screen without overlapping footer */
+    border: 1px solid #ddd;
+    background-color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 0;
+    
+}
+
+.fl-table {
+    font-size: 14px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+}
+
+.fl-table td,
+.fl-table th {
+    text-align: center;
+    padding: 15px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #a4a3a3;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #000000;
+    background: #ffffff;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 15%; /* Adjust to avoid overlapping the left menu */
+    width: 80%; /* Dynamic width to fit the content area */
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-left: 40px;
+}
+
+/* #tab-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    width: 100%;
+    margin-left: 290px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+} */
+
+.tab {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.tab.active {
+    background-color: #dcdcdc;
+    font-weight: bold;
+}
+
+.tab i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 767px) {
+
+
+    aside {
+        width: 100%;
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .fl-table {
+        width: 100%;
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table-wrapper:before {
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+
+    .fl-table thead,
+    .fl-table tbody,
+    .fl-table thead th {
+        display: block;
+    }
+
+    .fl-table thead th:last-child {
+        border-bottom: none;
+    }
+
+    .fl-table thead {
+        float: left;
+    }
+
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+
+    .fl-table td,
+    .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}

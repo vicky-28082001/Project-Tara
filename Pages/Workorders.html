@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkOrders UI</title>
+    <link rel="stylesheet" href="../Styles/Workorders.css">
+    <script src="../Scripts/Workorders.js"></script>
+</head>
+<body>
+    <aside>
+        <div class="header">TARA</div>
+        <nav>
+            <div class="nav-item" onclick="navigateToDashboard('Dashboard.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">dashboard</i>
+                    Dashboard
+                </span>
+            </div>
+            <div class="nav-item" onclick="navigateToKeyUsers('Keyusers List.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">group</i>
+                    Key Users
+                </span>
+              
+            </div>
+            <div class="nav-item" onclick="navigateToUsers('Users.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">people</i>
+                    Users
+                </span>
+               
+            </div>
+            <div class="nav-item"  onclick="navigateToCraftsman('Craftsman.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">handyman</i>
+                    Craftsman
+                </span>
+                
+            </div>
+            <div class="nav-item active">
+                <span>
+                    <i class="material-symbols-outlined">receipt_long</i>
+                    Orders
+                </span>
+                
+            </div>
+            <div class="nav-item">
+                <span>
+                    <i class="material-symbols-outlined">work</i>
+                    Job Orders
+                </span>
+               
+            </div>
+            <div class="nav-item">
+                <span>
+                    <i class="material-symbols-outlined">diamond</i>
+                    Designs
+                </span>
+                
+            </div>
+        </nav>
+    </aside>
+
+    <div class="content">
+        <div class="content-header">
+            <h2>Workorders</h2>
+            <div>
+                <button onclick="toggleOrderForm()">Add New</button>
+                <div class="search-bar-wrapper">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" id="searchBar" class="search-bar" placeholder="Search..." oninput="filterTable()">
+                </div>
+                <button>Specific</button>
+                <button onclick="toggleFilterForm()">Filter</button>
+                <button id="sort-button" data-sort-order="asc" onclick="toggleSort()">Sort</button>
+                <button onclick="toggleEditOrderForm()">Edit</button>
+                <button onclick="toggleViewOrderForm()">View</button>
+                <button onclick="deleteSelectedOrders()">Delete</button>
+                <div style="position: relative; display: inline-block;">
+                    <button onclick="toggleExportMenu()">Export</button>
+                    <div class="export-menu">
+                        <button onclick="exportData('pdf')">Export as PDF</button>
+                        <button onclick="exportData('excel')">Export as Excel</button>
+                        <button onclick="exportData('csv')">Export as CSV</button>
+                    </div>
+                </div>
+                <button onclick="printSelectedDetails()">Print</button>
+            </div>
+        </div>
+
+        <div class="form-section" id="add-order-form" style="display: none;">
+            <h3>Add New Order</h3>
+            <form class="creation-section" onsubmit="submitOrderForm(event)">
+                <div class="details-grid">
+                    <div class="field">
+                        <label for="order-number">Order No:</label>
+                        <input type="text" id="order-number" name="order-number" placeholder="Enter Order No">
+                    </div>
+                    <div class="field">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category">
+                            <option value="">Select Category</option>
+                            <option value="chain">Chain</option>
+                            <option value="Bangles">Bangles</option>
+                            <option value="Bracelets">Bracelets</option>
+                            <option value="Rings">Rings</option>
+                            </select>
+                    </div>
+                    
+                    <div class="field">
+                        <label for="quantity">Quantity:</label>
+                        <select id="quantity" name="quantity">
+                            <option value="">Select Quantity</option>
+                            <option value="1">1 Pair</option>
+                            <option value="2">2 Pairs</option>
+                            <option value="3">3 Pairs</option>
+                            <option value="4">4 Pairs</option>
+                            </select>
+                    </div>
+                    <div class="field">
+                        <label for="weight">Weight:</label>
+                        <input type="text" id="weight" name="weight" placeholder="Enter Weight">
+                    </div>
+                    <div class="field">
+                        <label for="due-date">Due Date:</label>
+                        <input type="date" id="due-date" name="due-date">
+                    </div>
+                    <div class="field">
+                        <label for="size">Size:</label>
+                        <select id="size" name="size">
+                            <option value="">Select Size</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="stone">Stone:</label>
+                        <select id="stone" name="stone">
+                            <option value="">Select Stone</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="rodium">Rodium:</label>
+                        <select id="rodium" name="rodium">
+                            <option value="">Select Rodium</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="hallmark">Hallmark:</label>
+                        <select id="hallmark" name="hallmark">
+                            <option value="">Select Hallmark</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="status">Screw:</label>
+                        <select id="screw" name="status">
+                            <option value="">Select Status</option>
+                            <option value="open">Open</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="hook">Hook:</label>
+                        <select id="hook" name="hook">
+                            <option value="">Select Hook</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="narration">Narration:</label>
+                        <textarea id="narration" name="narration" placeholder="Enter Narration"></textarea>
+                    </div>
+                    <div class="field image-field">
+                        <label for="order-image">Order Image:</label>
+                        <input type="file" id="order-image" name="order-image" accept="image/*">
+                    </div>
+                </div>
+                <button type="submit">Create Order</button>
+            </form>
+        </div>
+
+        <div class="form-section" id="edit-order-form" style="display: none;">
+            <h3>Edit Order</h3>
+            <form class="creation-section" onsubmit="submitEditOrderForm(event)">
+                <div class="details-grid">
+                    <div class="field">
+                        <label for="edit-order-number">Order No:</label>
+                        <input type="text" id="edit-order-number" name="edit-order-number" placeholder="Enter Order No" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-creation-date">Creation Date:</label>
+                        <input type="text" id="edit-creation-date" name="edit-creation-date" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-category">Category:</label>
+                        <select id="edit-category" name="edit-category">
+                            <option value="">Select Category</option>
+                            <option value="chain">Chain</option>
+                            <option value="Bangles">Bangles</option>
+                            <option value="Bracelets">Bracelets</option>
+                            <option value="Rings">Rings</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-quantity">Quantity:</label>
+                        <select id="edit-quantity" name="edit-quantity">
+                            <option value="">Select Quantity</option>
+                            <option value="1">1 Pair</option>
+                            <option value="2">2 Pairs</option>
+                            <option value="3">3 Pairs</option>
+                            <option value="4">4 Pairs</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-weight">Weight:</label>
+                        <input type="text" id="edit-weight" name="edit-weight" placeholder="Enter Weight">
+                    </div>
+                    <div class="field">
+                        <label for="edit-due-date">Due Date:</label>
+                        <input type="date" id="edit-due-date" name="edit-due-date">
+                    </div>
+                    <div class="field">
+                        <label for="edit-size">Size:</label>
+                        <select id="edit-size" name="edit-size">
+                            <option value="">Select Size</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-stone">Stone:</label>
+                        <select id="edit-stone" name="edit-stone">
+                            <option value="">Select Stone</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-rodium">Rodium:</label>
+                        <select id="edit-rodium" name="edit-rodium">
+                            <option value="">Select Rodium</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-hallmark">Hallmark:</label>
+                        <select id="edit-hallmark" name="edit-hallmark">
+                            <option value="">Select Hallmark</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-screw">Screw:</label>
+                        <select id="edit-screw" name="edit-screw">
+                            <option value="">Select Status</option>
+                            <option value="open">Open</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-hook">Hook:</label>
+                        <select id="edit-hook" name="edit-hook">
+                            <option value="">Select Hook</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="edit-narration">Narration:</label>
+                        <textarea id="edit-narration" name="edit-narration" placeholder="Enter Narration"></textarea>
+                    </div>
+                    <div class="field image-field">
+                        <label for="edit-order-image">Order Image:</label>
+                        <input type="file" id="edit-order-image" name="edit-order-image" accept="image/*">
+                    </div>
+                </div>
+                <button type="submit">Update Order</button>
+                <button type="button" onclick="cancelEditOrder()">Cancel</button>
+            </form>
+        </div>
+
+        <div class="form-section" id="view-order-form" style="display: none;">
+            <h3>View Order</h3>
+            <form class="creation-section">
+                <div class="details-grid">
+                    <div class="field">
+                        <label for="view-order-number">Order No:</label>
+                        <input type="text" id="view-order-number" name="view-order-number" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-creation-date">Creation Date:</label>
+                        <input type="text" id="view-creation-date" name="view-creation-date" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-category">Category:</label>
+                        <input type="text" id="view-category" name="view-category" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-quantity">Quantity:</label>
+                        <input type="text" id="view-quantity" name="view-quantity" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-weight">Weight:</label>
+                        <input type="text" id="view-weight" name="view-weight" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-due-date">Due Date:</label>
+                        <input type="text" id="view-due-date" name="view-due-date" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-size">Size:</label>
+                        <input type="text" id="view-size" name="view-size" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-stone">Stone:</label>
+                        <input type="text" id="view-stone" name="view-stone" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-rodium">Rodium:</label>
+                        <input type="text" id="view-rodium" name="view-rodium" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-hallmark">Hallmark:</label>
+                        <input type="text" id="view-hallmark" name="view-hallmark" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-screw">Screw:</label>
+                        <input type="text" id="view-screw" name="view-screw" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-hook">Hook:</label>
+                        <input type="text" id="view-hook" name="view-hook" readonly>
+                    </div>
+                    <div class="field">
+                        <label for="view-narration">Narration:</label>
+                        <textarea id="view-narration" name="view-narration" readonly></textarea>
+                    </div>
+                    <div class="field image-field">
+                        <label for="view-order-image">Order Image:</label>
+                        <div id="view-order-image" class="image-placeholder"></div>
+                    </div>
+                </div>
+                <button type="button" onclick="closeViewOrder()">Close</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" onclick="toggleSelectAll(this)"></th>
+                        <th>Images</th>
+                        <th>Order No</th>
+                        <th>Creation Date</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Weight</th>
+                        <th>Due Date</th>
+                        <th>Size</th>
+                        <th>Stone</th>
+                        <th>Rodium</th>
+                        <th>Hallmark</th>
+                        <th>Open/Close</th>
+                        <th>Screw</th>
+                        <th>Naration</th>
+                        <th>Hook</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+    
+</body>
+</html>

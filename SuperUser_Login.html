@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="Styles/SuperUser_Login_Style.css">
+    <script>
+        function login() {
+            const selectElement = document.getElementById('user-type');
+            var user_code = document.getElementById("user-code").value;
+            var password = document.getElementById("password").value;
+            if (user_code == "user" && password == "123" && selectElement.value == "Super User") {
+                window.location.href = "Pages/Dashboard.html";
+            } else {
+                alert("Invalid Credentials");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-form">
+                <h2>Sign in as</h2>
+                <select id="user-type">
+                    <option>Select</option>
+                    <option>Super User</option>
+                    <option>Key User</option>
+                    <option>Users</option>
+                </select>
+                <div class="input-group">
+                    <label for="user-code">User Code</label>
+                    <input type="text" id="user-code" placeholder="Enter the code" required />
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="Enter the Password" required />
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="button-group">
+                    <button class="login-btn" id="login_btn" onclick="login()" ondragenter="login()">Login</button>
+                    <button class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+            <div class="logo">
+                <div class="logo-box">LOGO</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
