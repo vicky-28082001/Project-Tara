@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craftsman UI</title>
+    <link rel="stylesheet" href="../Styles/Craftsman.css">
+    <script src="../Scripts/Craftsman.js"></script>
+</head>
+
+<body>
+    <aside>
+        <div class="header">TARA</div>
+        <nav>
+            <div class="nav-item" onclick="navigateToDashboard('Dashboard.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">dashboard</i>
+                    Dashboard
+                </span>
+            </div>
+            <div class="nav-item" onclick="navigateToKeyusers('Keyusers List.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">group</i>
+                    Key Users
+                </span>
+    
+            </div>
+            <div class="nav-item" onclick="navigateTousers('Users.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">people</i>
+                    Users
+                </span>
+                
+            </div>
+            <div class="nav-item active">
+                <span>
+                    <i class="material-symbols-outlined">handyman</i>
+                    Craftsman
+                </span>
+               
+            </div>
+            <div class="nav-item" onclick="navigateToWorkorders('Workorders.html', event)">
+                <span>
+                    <i class="material-symbols-outlined">receipt_long</i>
+                    Orders
+                </span>
+               
+            </div>
+            <div class="nav-item">
+                <span>
+                    <i class="material-symbols-outlined">work</i>
+                    Job Orders
+                </span>
+                
+            </div>
+            <div class="nav-item">
+                <span>
+                    <i class="material-symbols-outlined">diamond</i>
+                    Designs
+                </span>
+               
+            </div>
+        </nav>
+    </aside>
+
+    <div class="content">
+        <div class="content-header">
+            <h2>Craftsman Section</h2>
+            <div>
+                <button onclick="toggleCreationForm()">Add New</button>
+                <div class="search-bar-wrapper">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" id="searchBar" class="search-bar" placeholder="Search..." oninput="filterTable()">
+                </div>
+                <button>Specific</button>
+                <button onclick="toggleFilterForm()">Filter</button>
+                <button id="sort-button" data-sort-order="asc" onclick="toggleSort()">Sort</button>
+                <button onclick="toggleEditForm()">Edit</button>
+                <button onclick="toggleViewForm()">View</button>
+                <button onclick="deleteSelectedUsers()">Delete</button>
+                <div style="position: relative; display: inline-block;">
+                    <button onclick="toggleExportMenu()">Export</button>
+                    <div class="export-menu">
+                        <button onclick="exportData('pdf')">Export as PDF</button>
+                        <button onclick="exportData('excel')">Export as Excel</button>
+                        <button onclick="exportData('csv')">Export as CSV</button>
+                    </div>
+                </div>
+                <button onclick="printSelectedDetails()">Print</button>
+            </div>
+        </div>
+        <!--Key User Creation form starts here-->
+        <div class="form-section">
+            <h3>Create New User</h3>
+            <form class="creation-section" onsubmit="submitCreationForm(event)">
+                <div class="details-grid">
+                    <div class="field">
+                        <label for="full">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter the Full Name">
+                    </div>
+
+                    <div class="field">
+                        <label for="mobile">Mobile No:</label>
+                        <input type="text" id="Mobile" name="Mobile" placeholder="Enter the Mobile Number">
+                    </div>
+
+                    <div class="field">
+                        <label for="full">Usercode:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter the Full Name">
+                    </div>
+
+                    <div class="field">
+                        <label for="pass">password:</label>
+                        <input type="password" id="fullname" name="fullname" placeholder="Enter the Full Name">
+                    </div>
+
+                    <div class="field">
+                        <label for="Company Name">Company Name:</label>
+                        <input type="text" id="Company Name" name="Company Name" placeholder="Enter the Full Name">
+                    </div>
+
+                    <div class="field">
+                        <label for="GST">GST No:</label>
+                        <input type="text" id="GST" name="GST" placeholder="Enter the GST Number">
+                    </div>
+
+                    <div class="field">
+                        <label for="Email-ID">Email-ID:</label>
+                        <input type="text" id="Email-ID" name="Email-ID" placeholder="Enter the  Email-ID">
+                    </div>
+                    
+                    <div class="field">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country">
+                            <option value="">Select Country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="State">State:</label>
+                        <select id="State" name="State">
+                            <option value="">Select city</option>
+                            <option value="Tamilnadu">Tamilnadu</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="City">City:</label>
+                        <select id="City" name="City">
+                            <option value="">Select city</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Trichy">Trichy</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="Pincode">Pincode:</label>
+                        <input type="text" id="Pincode" name="Pincode" placeholder="Enter the Pincode">
+                    </div>
+
+                    <div class="field">
+                        <label for="Status">Status:</label>
+                        <select id="Status" name="Status">
+                            <option value="">Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="date">DOB:</label>
+                        <input type="date" id="date" name="date" placeholder="date of birth">
+                    </div>
+
+                    <div class="field">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="Profile">Profile:</label>
+                        <input type="file" id="image" name="image" placeholder="choose an image">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <h3>User Access:</h3>
+                    <div class="user-access-grid">
+                        <label><input type="checkbox" name="user-access" value="View Only"> View Only</label>
+                        <label><input type="checkbox" name="user-access" value="Copy"> Copy</label>
+                        <label><input type="checkbox" name="user-access" value="Print"> Print</label>
+                        <label><input type="checkbox" name="user-access" value="Download"> Download</label>
+                        <label><input type="checkbox" name="user-access" value="Share"> Share</label>
+                        <label><input type="checkbox" name="user-access" value="Screenshots"> Screenshots</label>
+                    </div>
+                </div>
+
+                <button type="submit">Create</button>
+            </form>
+        </div>
+
+        <!--edit form-->
+        <div class="form-section edit-form">
+            <h3>Edit User</h3>
+            <form class="creation-section">
+                <div class="details-grid">
+                    <div class="field">
+                        <label for="edit-full-name">Full Name:</label>
+                        <input type="text" id="edit-full-name" name="edit-full-name">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-mobile-no">Mobile No:</label>
+                        <input type="text" id="edit-mobile-no" name="edit-mobile-no">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-company-name">Company Name:</label>
+                        <input type="text" id="edit-company-name" name="edit-company-name">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-GST">GST No:</label>
+                        <input type="text" id="edit-GST" name="edit-GST">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-email-id">Email ID:</label>
+                        <input type="email" id="edit-email-id" name="edit-email-id">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-country">Country:</label>
+                        <input type="text" id="edit-country" name="edit-country">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-state">State:</label>
+                        <input type="text" id="edit-state" name="edit-state">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-city">City:</label>
+                        <input type="text" id="edit-city" name="edit-city">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-pincode">Pincode:</label>
+                        <input type="text" id="edit-pincode" name="edit-pincode">
+                    </div>
+
+                    <div class="field">
+                        <label for="edit-status">Status:</label>
+                        <input type="text" id="edit-status" name="edit-status">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <h3>User Access:</h3>
+                    <div class="user-access-grid">
+                        <label><input type="checkbox" name="user-access" value="View Only"> View Only</label>
+                        <label><input type="checkbox" name="user-access" value="Copy"> Copy</label>
+                        <label><input type="checkbox" name="user-access" value="Print"> Print</label>
+                        <label><input type="checkbox" name="user-access" value="Download"> Download</label>
+                        <label><input type="checkbox" name="user-access" value="Share"> Share</label>
+                        <label><input type="checkbox" name="user-access" value="Screenshots"> Screenshots</label>
+                    </div>
+                </div>
+
+
+            </form>
+            <button type="button" onclick="saveEditedUser()">Save</button>
+            <button type="button" onclick="cancelEditUser()">Cancel</button>
+        </div>
+
+        <div class="form-section view-form">
+            <h3>View User</h3>
+            <form class="creation-section">
+                <div class="details-grid">
+                    <div class="field">
+                        <label for="view-full-name">Full Name:</label>
+                        <input type="text" id="view-full-name" name="view-full-name" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-mobile-no">Mobile No:</label>
+                        <input type="text" id="view-mobile-no" name="view-mobile-no" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-company-name">Company Name:</label>
+                        <input type="text" id="view-company-name" name="view-company-name" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-GST">GST No:</label>
+                        <input type="text" id="view-GST" name="view-GST" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-email-id">Email ID:</label>
+                        <input type="email" id="view-email-id" name="view-email-id" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-country">Country:</label>
+                        <input type="text" id="view-country" name="view-country" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-state">State:</label>
+                        <input type="text" id="view-state" name="view-state" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-city">City:</label>
+                        <input type="text" id="view-city" name="view-city" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-pincode">Pincode:</label>
+                        <input type="text" id="view-pincode" name="view-pincode" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label for="view-status">Status:</label>
+                        <input type="text" id="view-status" name="view-status" readonly>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <h3>User Access:</h3>
+                    <div class="user-access-grid">
+                        <label><input type="checkbox" name="user-access" value="View Only"> View Only</label>
+                        <label><input type="checkbox" name="user-access" value="Copy"> Copy</label>
+                        <label><input type="checkbox" name="user-access" value="Print"> Print</label>
+                        <label><input type="checkbox" name="user-access" value="Download"> Download</label>
+                        <label><input type="checkbox" name="user-access" value="Share"> Share</label>
+                        <label><input type="checkbox" name="user-access" value="Screenshots"> Screenshots</label>
+                    </div>
+                </div>
+
+                <button type="button" onclick="closeViewCraftsmanForm()">Close</button>
+
+            </form>
+
+        </div>
+
+        <div class="table_container">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" onclick="toggleCheckboxes(this)"></th>
+                        <th>Full Name</th>
+                        <th>Company Name</th>
+                        <th>Mobile No</th>
+                        <th>Email ID</th>
+                        <th>GST No.</th>
+                        <th>City</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
